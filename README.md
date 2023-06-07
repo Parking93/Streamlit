@@ -1,2 +1,3 @@
 # Streamlit
-streamlit_test
+📖 스트림릿 집필을 위한 예시 차트를 배포하기 위한 레포지토리
+
