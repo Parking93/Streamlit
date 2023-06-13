@@ -3,77 +3,47 @@
 
 # In[ ]:
 
-# 서울 경도위도를 중심으로 만들어진 랜덤 데이터를 활용한 st.map 1
+
+
 import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.header('st.map')
-st.write('서울 경도위도를 중심으로 만들어진 랜덤 데이터를 활용한 st.map')
-st.caption('st.map(df)')
-
+np.random.seed(100)
 df = pd.DataFrame(
-    np.random.randn(500, 2) / [50, 50] + [37.57, 126.98],
+    np.random.randn(1000, 2) / [50, 50] + [37.57, 126.98],
     columns=['lat', 'lon'])
 
 st.map(df)
 
 st.write('---')
 
+locations = {
+  '서울' : [37.566418, 126.977950],#서울시청
+  '부산' : [35.180152, 129.074980],#부산시청
+  '대구' : [35.871468, 128.601757],#대구시청
+  '인천' : [37.456445, 126.705873],#인천시청
+  '광주' : [35.160068, 126.851426],#광주광역시청
+  '대전' : [36.350664, 127.384819],#대전시청
+  '울산' : [35.539772, 129.311486],#울산시청
+  '세종' : [36.480838, 127.289181],#세종시청
+  '경기' : [37.275221, 127.009382],#경기도청
+  '강원' : [37.885300, 127.729835],#강원(강원도청)
+  '충북' : [36.635947, 127.491345],#충북도청
+  '충남' : [36.658826, 126.672849],#충남도청
+  '전북' : [35.820599, 127.108759],#전북도청
+  '전남' : [34.816351, 126.462924],#전남도청
+  '경북' : [36.574108, 128.509303],#경북도청
+  '경남' : [35.238398, 128.692371],#경남도청
+  '제주' : [33.3617007, 126.511657]#제주
+    }
 
+df_locations = pd.DataFrame(locations).T
+df_locations.columns = ['lat', 'lon']
 
-# 서울 경도위도를 중심으로 만들어진 랜덤 데이터를 활용한 st.map 2
+st.map(df_locations, zoom=5.5, use_container_width=True)
 
-
-st.write('서울 경도위도를 중심으로 만들어진 랜덤 데이터를 활용한 st.map')
-st.caption('st.map(df, zoom=10, use_container_width=True)')
-
-df = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.57, 126.98],
-    columns=['lat', 'lon'])
-
-st.map(df, zoom=10, use_container_width=True)
-
-st.write('---')
-
-
-
-# 전국 시도 좌표 데이터를 활용한 st.map 3 (예시)
-
-st.subheader('예시1')
-st.write('전국 시도 위치 데이터를 활용한 st.map')
-
-df = pd.read_excel('city_location_korea.xlsx')
-                   
-
-st.map(df, zoom = 5.7)
-
-st.write('---')
-
-# 2022년 한반도에 지진이 발생한 위치 데이터를 활용한 st.map 4(예시)
-# 출처: 기상청 기상자료개방포털
-st.subheader('예시2')
-st.write('2022년에 지진이 발생한 위치 데이터를 활용한 st.map')
-
-df = pd.read_csv('earthquake(2022).csv')
-
-st.map(df, zoom = 5)
-
-st.write('---')
-
-# 스타벅스 데이터를 활용한 st.map 5 (예시)
-
-st.subheader('예시3')
-st.write('서울 내에 스타벅스 매장 위치 데이터를 활용한 st.map')
-
-df = pd.read_excel('starbucks_seoul.xlsx')
-
-st.map(df, zoom = 10)
-
-st.write('---')
-
-
-
+######################################################################3
 
 
 
