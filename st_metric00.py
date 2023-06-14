@@ -85,9 +85,13 @@ col3.metric(label="유럽연합EUR", value="1,335.82 원", delta="11.44 원")
 st.write('---')
 
 
+import pandas as pd 
 
+os.getcwd()+"/city_locations.xlsx"
 
+df = pd.read_excel('city_location_korea.xlsx')
 
+st.dataframe(df)
 
 
 
