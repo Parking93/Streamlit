@@ -94,9 +94,9 @@ import os
 
 # st.dataframe(df)
 
-os.getcwd()
+a = os.getcwd()
 
-
+st.write(a)
 
 
 
