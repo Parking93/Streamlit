@@ -88,15 +88,43 @@ st.write('---')
 import pandas as pd 
 import os 
 
-# os.getcwd()+"city_location_korea.xlsx"
-
-# df = pd.read_excel('city_location_korea.xlsx')
-
-# st.dataframe(df)
-
-os.path.join(os.getcwd(), 'city_location_korea.xlsx')
+os.getcwd()+"city_location_korea.xlsx"
 
 df = pd.read_excel('city_location_korea.xlsx')
+
 st.dataframe(df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
