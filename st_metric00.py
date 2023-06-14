@@ -86,7 +86,7 @@ st.write('---')
 
 
 import pandas as pd 
-
+import os 
 os.getcwd()+"/city_locations.xlsx"
 
 df = pd.read_excel('city_location_korea.xlsx')
