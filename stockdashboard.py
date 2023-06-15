@@ -27,7 +27,7 @@ def main():
     with col2:
         end_date = st.date_input('종료 날짜')
     # 종목을 문자열로 변환
-    stock_str = str(stock)
+    
 
     
     # 날짜를 문자열로 변환
@@ -36,7 +36,7 @@ def main():
     
     
     # 데이터 생성
-    df = fdr.DataReader(stock_str, start_date_str, end_date_str)
+    df = fdr.DataReader(stock, start_date_str, end_date_str)
     st.dataframe(df)
     
     # 라인 그래프 생성
