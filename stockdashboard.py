@@ -17,8 +17,8 @@ def main():
     st.title("KOSPI")
     st.subheader("KS11")
     
-    # stock_list = ['KS11', 'BTC/KRW']
-    # stock = st.multiselect('종목을 선택해주세요.', stock_list) 
+    stock_list = ['KS11', 'BTC/KRW']
+    stock = st.multiselect('종목을 선택해주세요.', stock_list) 
         
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
@@ -36,7 +36,7 @@ def main():
     
     
     # 데이터 생성
-    df = fdr.DataReader('BTC/KRW', start_date_str, end_date_str)
+    df = fdr.DataReader(stock[0], start_date_str, end_date_str)
     st.dataframe(df)
     
     # 라인 그래프 생성
