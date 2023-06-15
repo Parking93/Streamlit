@@ -37,7 +37,9 @@ def main():
     
     # 라인 그래프 생성
     st.line_chart(df)
-    
+
+    # 막대 그래프 생성
+    st.bar_chart(df)
 
 
 
