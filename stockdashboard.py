@@ -27,8 +27,8 @@ def main():
         end_date = st.date_input('종료 날짜')
     
     # 날짜를 문자열로 변환
-    start_date_str = start_date.strftime('%Y-%m-%d')
-    end_date_str = end_date.strftime('%Y-%m-%d')
+    start_date_str = start_date.strftime('%Y')
+    end_date_str = end_date.strftime('%Y')
     
     
     # 데이터 생성
