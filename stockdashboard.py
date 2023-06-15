@@ -7,9 +7,9 @@
 
 import streamlit as st
 import FinanceDataReader as fdr
-import plotly.graph_objects as go
-import requests
-from bs4 import BeautifulSoup
+# import plotly.graph_objects as go
+# import requests
+# from bs4 import BeautifulSoup
 
 def main():
     # 제목
