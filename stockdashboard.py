@@ -26,20 +26,17 @@ def main():
     with col2:
         end_date = st.date_input('종료 날짜')
     
-#     # 날짜를 문자열로 변환
-#     start_date_str = start_date.strftime('%Y-%m-%d')
-#     end_date_str = end_date.strftime('%Y-%m-%d')
+    # 날짜를 문자열로 변환
+    start_date_str = start_date.strftime('%Y-%m-%d')
+    end_date_str = end_date.strftime('%Y-%m-%d')
     
     
-#     # 데이터 생성
-#     df = fdr.DataReader(stock, start_date_str, end_date_str)
-    
-    
-    kospi = fdr.DataReader('KS11') 
-    st.dataframe(kospi)
+    # 데이터 생성
+    df = fdr.DataReader(stock, start_date_str, end_date_str)
+    st.dataframe(df)
     
     # 라인 그래프 생성
-    
+    st.line_chart(df)
     
 
 
