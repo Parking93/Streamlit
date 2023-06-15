@@ -27,7 +27,7 @@ def main():
     with col2:
         end_date = st.date_input('종료 날짜')
     # 종목을 문자열로 변환
-    stock_str = stock.str()
+    stock_str = str(stock)
 
     
     # 날짜를 문자열로 변환
