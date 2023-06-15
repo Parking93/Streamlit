@@ -35,8 +35,8 @@ def main():
 #     df = fdr.DataReader(stock, start_date_str, end_date_str)
     
     
-#     kospi = fdr.DataReader('KS11') 
-#     st.dataframe(kospi)
+    kospi = fdr.DataReader('KS11') 
+    st.dataframe(kospi)
     
     # 라인 그래프 생성
     
