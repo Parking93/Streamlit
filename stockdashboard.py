@@ -43,13 +43,13 @@ def main():
     
 
     # 막대 그래프 생성
-    st.subheader('막대 그래프')
+    st.subheader('📊막대 그래프')
     for i in range(len(stock_list)):
         st.subheader(f'{stock[i]}')
         st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     
     # 라인 그래프 생성 with for문
-    st.subheader('라인 그래프')
+    st.subheader('📈라인 그래프')
     for i in range(len(stock_list)):
         st.subheader(f'{stock[i]}')
         st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
