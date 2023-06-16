@@ -54,15 +54,21 @@ def main():
         plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
     st.pyplot(plt)
 
+    tab1, tab2, tab3 = st.tabs(['겹쳐진 그래프' , '개별 라인 그래프', '개별 막대 그래프'])
+    with tab1:
+        for i in range(len(stock)):
+        plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+        st.pyplot(plt)
+    with tab2:
+        for i in range(len(stock)):
+        st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    with tab3:
+        for i in range(len(stock)):
+        st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    
 
 
-    def relativeReturns(df):
-        rel = df.pct_change()
-        cumulRet = (1+rel).cumprod() - 1
-        cumulRet = cumulRet.fillna(0)
-        return cumulRet
-    df_test = relativeReturns(stock, start_date_str, end_date_str)
-    st.line_chart(df_test)
+
 
 
 if __name__ == "__main__":
