@@ -50,7 +50,7 @@ def main():
     
     # 라인 그래프 생성 with for문
     for i in range(len(stock)):
-        st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str))
+        st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
         
     # create matplotlib line     
     for i in range(len(stock)):
