@@ -7,9 +7,6 @@
 
 import streamlit as st
 import FinanceDataReader as fdr
-# import plotly.graph_objects as go
-# import requests
-# from bs4 import BeautifulSoup
 import matplotlib.pyplot as plt 
 import koreanize_matplotlib
 
