@@ -56,6 +56,15 @@ def main():
 
 
 
+    def relativeReturns(df):
+        rel = df.pct_change()
+        cumulRet = (1+rel).cumprod() - 1
+        cumulRet = cumulRet.fillna(0)
+        return cumulRet
+    df_test = relativeReturns(stock, start_date_str, end_date_str)
+    st.line_chart(df_test)
+
+
 if __name__ == "__main__":
     main()
 
