@@ -43,6 +43,13 @@ def main():
     #     st.metric(label=f'{stock[i]}', value=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]}원',
     #              delta=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]-fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[start_date_str]}원')
 
+    # Multiple lines in one line chart
+    # new = []
+    # for i in range(len(stock_list)):
+    #     fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close']
+
+
+    
     # 막대 그래프 생성
     st.subheader('📊막대 그래프')
     for i in range(len(stock_list)):
