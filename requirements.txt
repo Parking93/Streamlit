@@ -1,3 +1,5 @@
 finance-datareader
 beautifulsoup4
 plotly
+
+koreanize-matplotlib
