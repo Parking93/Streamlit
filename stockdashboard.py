@@ -58,7 +58,7 @@ def main():
     with tab1:
         for i in range(len(stock)):
         plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-        st.pyplot(plt)
+    st.pyplot(plt)
     with tab2:
         for i in range(len(stock)):
         st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
