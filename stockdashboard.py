@@ -40,9 +40,7 @@ def main():
     
     # 매트릭 생성 
     for i in range(len(stock_list)):
-        st.metric(label=f'{stock[i]}', value=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]}',
-                  delta=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]
-                          - fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[start_date_str]}'
+        st.metric(label=f'{stock[i]}', value=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]}')
 
     # 막대 그래프 생성
     st.subheader('📊막대 그래프')
