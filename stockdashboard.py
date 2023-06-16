@@ -10,6 +10,9 @@ import FinanceDataReader as fdr
 # import plotly.graph_objects as go
 # import requests
 # from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt 
+import koreanize_matplotlib
+
 
 def main():
     # 제목
@@ -48,6 +51,11 @@ def main():
     # 라인 그래프 생성 with for문
     for i in range(len(stock)):
         st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str))
+    # create matplotlib line     
+    for i in range(len(stock)):
+        plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str))
+    plt.show()
+
 
 
 if __name__ == "__main__":
