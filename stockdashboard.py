@@ -29,24 +29,21 @@ def main():
         start_date = st.date_input('시작 날짜')
     with col2:
         end_date = st.date_input('종료 날짜')
-    # 종목을 문자열로 변환
-    
-
+   
     
     # 날짜를 문자열로 변환
     start_date_str = start_date.strftime('%Y-%m-%d')
     end_date_str = end_date.strftime('%Y-%m-%d')
     
     
-    # # 데이터 생성
+    # 데이터 생성
     # df = fdr.DataReader(stock[0], start_date_str, end_date_str)
     # st.dataframe(df)
     
-    # # 라인 그래프 생성
-    # st.line_chart(df)
 
-    # # 막대 그래프 생성
-    # st.bar_chart(df)
+    # 막대 그래프 생성
+    for i in range(len(stock)):
+        st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
     
     # 라인 그래프 생성 with for문
     for i in range(len(stock)):
