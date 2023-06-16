@@ -46,7 +46,7 @@ def main():
     st.subheader('📊막대 그래프')
     for i in range(len(stock_list)):
         st.subheader(f'{stock[i]}')
-        st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+        st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)[['Close','Open']])
     
     # 라인 그래프 생성 with for문
     st.subheader('📈라인 그래프')
