@@ -20,9 +20,11 @@ def main():
     st.title("📈")
     st.subheader("삼성전자 VS SK 하이닉스")
     
-    stock_list = [{'삼성전자': '005930', 'sk하이닉스':'000660'}]
+    stock_list = ['삼성전자', 'sk하이닉스']
     stock = st.multiselect('종목을 선택해주세요.', stock_list) 
-        
+    stock_dict = {'삼성전자':'005930', 'sk하이닉스':'000660'}
+
+    
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
     with col1:
@@ -36,38 +38,34 @@ def main():
     end_date_str = end_date.strftime('%Y-%m-%d')
     
     
-    # 데이터 생성
-    # df = fdr.DataReader(stock[0], start_date_str, end_date_str)
-    # st.dataframe(df)
-    
 
     # 막대 그래프 생성
     for i in range(len(stock)):
-        st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+        st.bar_chart(fdr.DataReader(stock_dict[i], start_date_str, end_date_str)['Close'])
     
-    # 라인 그래프 생성 with for문
-    for i in range(len(stock)):
-        st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    # # 라인 그래프 생성 with for문
+    # for i in range(len(stock)):
+    #     st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
         
-    # create matplotlib line     
-    for i in range(len(stock)):
-        plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    st.pyplot(plt)
+    # # create matplotlib line     
+    # for i in range(len(stock)):
+    #     plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    # st.pyplot(plt)
 
 
 
-    # Tab 생성 
-    tab1, tab2, tab3 = st.tabs(['겹쳐진 그래프' , '개별 라인 그래프', '개별 막대 그래프'])
-    with tab1:
-        for i in range(len(stock)):
-            plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-        st.pyplot(plt)
-    with tab2:
-        for i in range(len(stock)):
-            st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    with tab3:
-        for i in range(len(stock)):
-            st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    # # Tab 생성 
+    # tab1, tab2, tab3 = st.tabs(['겹쳐진 그래프' , '개별 라인 그래프', '개별 막대 그래프'])
+    # with tab1:
+    #     for i in range(len(stock)):
+    #         plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    #     st.pyplot(plt)
+    # with tab2:
+    #     for i in range(len(stock)):
+    #         st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    # with tab3:
+    #     for i in range(len(stock)):
+    #         st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
     
 
 
