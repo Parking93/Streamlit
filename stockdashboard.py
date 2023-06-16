@@ -54,7 +54,7 @@ def main():
     # create matplotlib line     
     for i in range(len(stock)):
         plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str))
-    plt.show()
+    st.pyplot(plt)
 
 
 
