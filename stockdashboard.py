@@ -9,7 +9,7 @@ import streamlit as st
 import FinanceDataReader as fdr
 import matplotlib.pyplot as plt 
 import koreanize_matplotlib
-
+import datetime
 
 def main():
     # 제목
