@@ -20,9 +20,10 @@ def main():
     st.title("📈")
     st.subheader("삼성전자 VS SK 하이닉스")
     
-    stock_list = []
-    stock = st.multiselect('종목을 선택해주세요.', ['삼성전자', 'sk하이닉스']) 
+    stocks = ['삼성전자', 'sk하이닉스']
+    stock = st.multiselect('종목을 선택해주세요.', stocks) 
     stock_dict = {'삼성전자':'005930', 'sk하이닉스':'000660'}
+    stock_list = []
     for i in stock:
         stock_list.append(stock_dict[i])
     
@@ -42,17 +43,17 @@ def main():
     
 
     # 막대 그래프 생성
-    for i in range(len(stock)):
+    for i in range(len(stock_list)):
         st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     
-    # # 라인 그래프 생성 with for문
-    # for i in range(len(stock)):
-    #     st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
+    # 라인 그래프 생성 with for문
+    for i in range(len(stock_list)):
+        st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         
-    # # create matplotlib line     
-    # for i in range(len(stock)):
-    #     plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    # st.pyplot(plt)
+    # create matplotlib line     
+    for i in range(len(stock_list)):
+        plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    st.pyplot(plt)
 
 
 
