@@ -16,11 +16,11 @@ import koreanize_matplotlib
 
 def main():
     # 제목
-    st.title("[주식 차트 대시보드]")
-    st.title("KOSPI")
-    st.subheader("KS11")
+    st.title("주식 차트 대시보드")
+    st.title("📈")
+    st.subheader("삼성전자 VS SK 하이닉스")
     
-    stock_list = ['KS11', 'BTC/KRW']
+    stock_list = [{'삼성전자': '005930', 'sk하이닉스':'000660']
     stock = st.multiselect('종목을 선택해주세요.', stock_list) 
         
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
