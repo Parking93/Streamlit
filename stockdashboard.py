@@ -20,10 +20,12 @@ def main():
     st.title("📈")
     st.subheader("삼성전자 VS SK 하이닉스")
     
-    stock_list = ['삼성전자', 'sk하이닉스']
-    stock = st.multiselect('종목을 선택해주세요.', stock_list) 
+    stock_list = []
+    stock = st.multiselect('종목을 선택해주세요.', ['삼성전자', 'sk하이닉스']) 
     stock_dict = {'삼성전자':'005930', 'sk하이닉스':'000660'}
-
+    for i in stock:
+        stock_list.append(stock_dict[i])
+    
     
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
@@ -41,7 +43,7 @@ def main():
 
     # 막대 그래프 생성
     for i in range(len(stock)):
-        st.bar_chart(fdr.DataReader(stock_dict[i], start_date_str, end_date_str)['Close'])
+        st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     
     # # 라인 그래프 생성 with for문
     # for i in range(len(stock)):
