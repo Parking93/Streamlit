@@ -67,7 +67,7 @@ def main():
     df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
     df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
     
-    st.line_chart(df)
+    
 
 
 if __name__ == "__main__":
