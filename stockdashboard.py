@@ -64,7 +64,7 @@ def main():
             plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         st.pyplot(plt)    
 
-    st.line_chart(fdr.DataReader('000660', '2022'))
+    st.line_chart(fdr.DataReader('000660', '2022')['Open','Close'])
 
 
 if __name__ == "__main__":
