@@ -64,8 +64,9 @@ def main():
     #         plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     #     st.pyplot(plt)    
 
-    df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
-    df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
+    st.write(stock_list)
+    # df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
+    # df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
     
     
 
