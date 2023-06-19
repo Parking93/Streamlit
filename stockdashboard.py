@@ -69,7 +69,8 @@ def main():
         df3 = pd.merge(df1, df2, on='Date')
         st.line_chart(df3)
     with tab5:
-        st.bar_chart(df3)
+        
+        st.bar_chart(np.mean(df3, axis=1))
 
         
 if __name__ == "__main__":
