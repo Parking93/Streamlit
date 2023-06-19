@@ -15,8 +15,6 @@ import numpy as np
 def main():
     # 제목
     st.title("주식 차트 대시보드")
-    st.title("📈")
-    st.subheader("삼성전자 VS SK 하이닉스")
     
     stocks = ['삼성전자', 'sk하이닉스']
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
@@ -33,38 +31,16 @@ def main():
     with col2:
         end_date = st.date_input('종료 날짜')
    
-    
     # 날짜를 문자열로 변환
     start_date_str = start_date.strftime('%Y-%m-%d')
     end_date_str = end_date.strftime('%Y-%m-%d')
+
+
     
     # 매트릭 생성 
     # for i in range(len(stock_list)):
     #     st.metric(label=f'{stock[i]}', value=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]}원',
     #              delta=f'{fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]-fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[start_date_str]}원')
-
-    # Multiple lines in one line chart
-    # new = []
-    # for i in range(len(stock_list)):
-    #     fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close']
-
-    
-    # # 막대 그래프 생성
-    # st.subheader('📊막대 그래프')
-    # for i in range(len(stock_list)):
-    #     st.subheader(f'{stock[i]}')
-    #     st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-    
-    # # 라인 그래프 생성 with for문
-    # st.subheader('📈라인 그래프')
-    # for i in range(len(stock_list)):
-    #     st.subheader(f'{stock[i]}')
-    #     st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-        
-    # # create matplotlib line     
-    # for i in range(len(stock_list)):
-    #     plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-    # st.pyplot(plt)
 
 
 
