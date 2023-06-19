@@ -41,7 +41,7 @@ def main():
     for i in range(len(stock_list)):
         stock_value1 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1]
         stock_value2 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-2]
-        st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}')
+        st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}원')
                   
 
 
