@@ -10,7 +10,7 @@ import FinanceDataReader as fdr
 import matplotlib.pyplot as plt 
 import koreanize_matplotlib
 import datetime 
-
+import numpy as np
 
 def main():
     # 제목
@@ -48,40 +48,42 @@ def main():
     # for i in range(len(stock_list)):
     #     fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close']
 
-
     
-    # 막대 그래프 생성
-    st.subheader('📊막대 그래프')
-    for i in range(len(stock_list)):
-        st.subheader(f'{stock[i]}')
-        st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    # # 막대 그래프 생성
+    # st.subheader('📊막대 그래프')
+    # for i in range(len(stock_list)):
+    #     st.subheader(f'{stock[i]}')
+    #     st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     
-    # 라인 그래프 생성 with for문
-    st.subheader('📈라인 그래프')
-    for i in range(len(stock_list)):
-        st.subheader(f'{stock[i]}')
-        st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    # # 라인 그래프 생성 with for문
+    # st.subheader('📈라인 그래프')
+    # for i in range(len(stock_list)):
+    #     st.subheader(f'{stock[i]}')
+    #     st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         
-    # create matplotlib line     
-    for i in range(len(stock_list)):
-        plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-    st.pyplot(plt)
+    # # create matplotlib line     
+    # for i in range(len(stock_list)):
+    #     plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    # st.pyplot(plt)
 
 
 
-    # # Tab 생성 
-    # tab1, tab2, tab3 = st.tabs(['겹쳐진 그래프' , '개별 라인 그래프', '개별 막대 그래프'])
-    # with tab1:
-    #     for i in range(len(stock)):
-    #         plt.plot(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    #     st.pyplot(plt)
-    # with tab2:
-    #     for i in range(len(stock)):
-    #         st.line_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    # with tab3:
-    #     for i in range(len(stock)):
-    #         st.bar_chart(fdr.DataReader(stock[i], start_date_str, end_date_str)['Close'])
-    
+    # Tab 생성 
+    tab1, tab2, tab3 = st.tabs(['막대그래프' , '라인 그래프', 'matplotlib line chart'])
+    with tab1:
+        st.subheader('📊막대 그래프')
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
+            st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    with tab2:
+        st.subheader('📈라인 그래프')
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
+            st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    with tab3:
+        for i in range(len(stock_list)):
+            plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+        st.pyplot(plt)    
 
 
 
