@@ -70,7 +70,7 @@ def main():
         st.line_chart(df3)
     with tab5:
         
-        st.bar_chart(np.mean(df3, axis=1))
+        st.bar_chart(np.mean(df3))
 
         
 if __name__ == "__main__":
