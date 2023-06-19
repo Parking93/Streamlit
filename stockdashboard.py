@@ -48,7 +48,7 @@ def main():
 
 
     # Tab 생성 
-    tab1, tab2, tab3, tab4= st.tabs(['막대그래프' , '라인 그래프', 'matplotlib line chart', '겹쳐진 라인 그래프'])
+    tab1, tab2, tab3, tab4, tab5= st.tabs(['막대그래프' , '라인 그래프', 'matplotlib line chart', '겹쳐진 라인 그래프', '종가 막대그래프'])
     with tab1:
         st.subheader('📊막대 그래프')
         for i in range(len(stock_list)):
@@ -68,7 +68,8 @@ def main():
         df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
         df3 = pd.merge(df1, df2, on='Date')
         st.line_chart(df3)
-
+    with tab5:
+        st.bar_chart(df3)
 
         
 if __name__ == "__main__":
