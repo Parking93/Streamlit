@@ -64,7 +64,7 @@ def main():
             plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         st.pyplot(plt)    
 
-    df = pd.merge(fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close'], fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close'], on = 'date')
+    df = pd.merge(fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close'], fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close'], on = 'Date')
     st.line_chart(df)
 
 
