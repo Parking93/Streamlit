@@ -39,8 +39,8 @@ def main():
     
     # 매트릭 생성 
     for i in range(len(stock_list)):
-        stock_value = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[end_date_str]
-        stock_value = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].loc[start_date_str]
+        stock_value = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1]
+        stock_value = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-2]
         st.metric(label=f'{stock[i]}', value=f'{stock_value}원')
                   
 
