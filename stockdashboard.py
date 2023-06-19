@@ -3,8 +3,6 @@
 
 # In[ ]:
 
-
-
 import streamlit as st
 import FinanceDataReader as fdr
 import matplotlib.pyplot as plt 
@@ -12,13 +10,16 @@ import koreanize_matplotlib
 import datetime 
 import numpy as np
 
+
+
 def main():
     # 제목
     st.title("주식 차트 대시보드")
-    
-    stocks = ['삼성전자', 'sk하이닉스']
+
+    # 종목 선택 
+    stocks = ['삼성전자', 'SK하이닉스']
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
-    stock_dict = {'삼성전자':'005930', 'sk하이닉스':'000660'}
+    stock_dict = {'삼성전자':'005930', 'SK하이닉스':'000660'}
     stock_list = []
     for i in stock:
         stock_list.append(stock_dict[i])
@@ -63,8 +64,7 @@ def main():
             plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         st.pyplot(plt)    
 
-
-
+    st.line_chart(fdr.DataReader('000660', '2022'))
 
 
 if __name__ == "__main__":
