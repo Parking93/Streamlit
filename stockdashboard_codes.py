@@ -51,24 +51,38 @@ def main():
     tab1, tab2, tab3, tab4, tab5= st.tabs(['막대그래프' , '라인 그래프', 'matplotlib line chart', '겹쳐진 라인 그래프', '종가 막대그래프'])
     with tab1:
         st.subheader('📊막대 그래프')
+        
+        # st.bar_chart 막대 그래프 생성 
+        
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     with tab2:
         st.subheader('📈라인 그래프')
+
+        # st.line_chart 라인 그래프 생성
+        
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
     with tab3:
+
+        # matplotlib 겹쳐진 라인 그래프 생성 
+        
         for i in range(len(stock_list)):
             plt.plot(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         st.pyplot(plt)    
     with tab4:
+
+        # st.line_chart 겹쳐진 라인 그래프 생성  
+        
         df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
         df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
         df3 = pd.merge(df1, df2, on='Date')
         st.line_chart(df3)
     with tab5:
+
+        # 종가 평균 막대 그래프 생성 
         
         st.bar_chart(np.mean(df3, axis=0), x = ['삼성전자', '하이닉스'])
 
