@@ -78,6 +78,10 @@ def main():
         # 종가 평균 막대 그래프 생성 
         
         st.bar_chart(np.mean(df3, axis=0), x = ['삼성전자', '하이닉스'])
+
+    df4 = fdr.DataReader(stock_list, start_date_str, end_date_str)
+    df5 = df4['Close']
+    st.line_chart(df5)
                          
 if __name__ == "__main__":
     main()
