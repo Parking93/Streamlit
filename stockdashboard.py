@@ -80,7 +80,8 @@ def main():
         st.bar_chart(np.mean(df3, axis=0), x = ['삼성전자', '하이닉스'])
 
     st.write(stock_list)
-    df4 = fdr.DataReader(stock_list, start_date_str, end_date_str)
+    
+    df4 = fdr.DataReader(['005930', '000660'], start_date_str, end_date_str)
     df5 = df4['Close']
     st.line_chart(df5)
                          
