@@ -55,8 +55,7 @@ def main():
         df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
 
         if len(stock) == 1:
-            df.colums = [stock]
-            st.line_chart(df['Close'])
+            pass
         if len(stock) >= 2:
             df.columns = stock
             st.line_chart(df)
