@@ -68,22 +68,17 @@ def main():
     with tab3:
 
         # st.line_chart 겹쳐진 라인 그래프 생성  
-        
+
         df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
         df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
         df3 = pd.merge(df1, df2, on='Date')
         st.line_chart(df3)
     with tab4:
 
-        # 종가 평균 막대 그래프 생성 
+        df = fdr.DataReader('KRX:'+stock_list.join(','), start_date_str, end_date_str)
+        st.line_chart(df)
         
-        st.bar_chart(np.mean(df3, axis=0), x = ['삼성전자', '하이닉스'])
-
-    st.write(stock_list)
-    
-    df4 = fdr.DataReader(['005930', '000660'], start_date_str, end_date_str)
-    df5 = df4['Close']
-    st.line_chart(df5)
+   
                          
 if __name__ == "__main__":
     main()
