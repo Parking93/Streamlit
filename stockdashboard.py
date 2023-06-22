@@ -58,9 +58,7 @@ def main():
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-        st.subheader('📊막대 그래프')
         
-
 
     with tab2:
         
