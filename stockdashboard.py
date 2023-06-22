@@ -75,7 +75,7 @@ def main():
         # st.line_chart(df3)
     with tab4:
 
-        df = fdr.DataReader('KRX:'+stock_list.join(','), start_date_str, end_date_str)
+        df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
         st.line_chart(df)
         
    
