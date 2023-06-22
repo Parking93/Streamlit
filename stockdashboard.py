@@ -80,7 +80,6 @@ def main():
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-            st.dataframe(df)
             fig = go.Figure(data=[go.Candlestick(x=df.index,
                                      open=df['Open'],
                                      high=df['High'],
