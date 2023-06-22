@@ -86,6 +86,7 @@ def main():
                                      low=df['Low'],
                                      close=df['Close'])])
             st.plotly_chart(fig)
+            st.bar_chart(df['Volume'])
                        
 if __name__ == "__main__":
     main()
