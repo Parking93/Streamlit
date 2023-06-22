@@ -86,7 +86,20 @@ def main():
                                      low=df['Low'],
                                      close=df['Close'])])
             st.plotly_chart(fig)
-            st.bar_chart(df['Volume'])
+
+    with tab4:
+        for i in range(len(stock_list)):
+            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
+            candlestick_data = go.Candlestick(x=df['Date'],
+                                 open=df['Open'],
+                                 high=df['High'],
+                                 low=df['Low'],
+                                 close=df['Close'])
+            bar_data = go.Bar(x=df['Date'], y=df['Volume'])
+            fig = go.Figure(data=[candlestick_data, bar_data])
+            st.plotly_chart(fig)
+
+
                        
 if __name__ == "__main__":
     main()
