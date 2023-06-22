@@ -70,8 +70,22 @@ def main():
             st.subheader(f'{stock[i]}')
             st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
-        
-   
+    with tab3:
+        st.subheader('캔들스틱 그래프')
+
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
+            df = fdr.DataReader(stock_list[i], start_data_str, end_date_str)
+            fig = go.Figure(data=[go.Candlestick(x=df.index,
+                                                 open=df['Open'],
+                                                 high=df['High'],
+                                                 low=df['Low'],
+                                                 close=df['Close'])])
+            st.plotly_chart(fig)
+    
+
+
+
                          
 if __name__ == "__main__":
     main()
