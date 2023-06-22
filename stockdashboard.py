@@ -81,8 +81,11 @@ def main():
             st.subheader(f'{stock[i]}')
             df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
             st.dataframe(df)
-            fig = go.Figure(data=[go.Candlestick(x=df.index, open=df['Open'], high=df['High'], low=df['Low'], close=df['Close'])])
-            
+            fig = go.Figure(data=[go.Candlestick(x=df.index,
+                                     open=df['Open'],
+                                     high=df['High'],
+                                     low=df['Low'],
+                                     close=df['Close'])])
             st.plotly_chart(fig)
                        
 if __name__ == "__main__":
