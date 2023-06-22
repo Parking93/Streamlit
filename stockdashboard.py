@@ -96,7 +96,7 @@ def main():
                                  low=df['Low'],
                                  close=df['Close'])
             bar_data = go.Bar(x=df.index, y=df['Volume'])
-
+            fig = go.Figure(data=[candlestick_data, bar_data])
             st.plotly_chart(fig)
 
 
