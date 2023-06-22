@@ -54,7 +54,7 @@ def main():
         
         df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
         
-        df.colunms = ['삼성전자', 'SK하이닉스']
+        df.colunms = ['Date', '삼성전자', 'SK하이닉스']
         st.dataframe(df)
         st.line_chart(df)
   
