@@ -56,10 +56,11 @@ def main():
 
         if len(stock) == 1:
             df.colums = [stock]
+            st.line(df['Close'])
         if len(stock) >= 2:
             df.columns = stock
+            st.line_chart(df)
         
-        st.line_chart(df)
   
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
