@@ -90,12 +90,12 @@ def main():
     with tab4:
         for i in range(len(stock_list)):
             df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-            candlestick_data = go.Candlestick(x=df['Date'],
+            candlestick_data = go.Candlestick(x=df.index,
                                  open=df['Open'],
                                  high=df['High'],
                                  low=df['Low'],
                                  close=df['Close'])
-            bar_data = go.Bar(x=df['Date'], y=df['Volume'])
+            bar_data = go.Bar(x=df.index, y=df['Volume'])
             fig = go.Figure(data=[candlestick_data, bar_data])
             st.plotly_chart(fig)
 
