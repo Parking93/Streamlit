@@ -56,7 +56,7 @@ def main():
 
         if len(stock) == 1:
             df.colums = [stock]
-        else:
+        if len(stock) >= 2:
             df.columns = stock
         
         st.line_chart(df)
