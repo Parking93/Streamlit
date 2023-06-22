@@ -48,7 +48,7 @@ def main():
 
 
     # Tab 생성 
-    tab1, tab2, tab3 = st.tabs(['라인 그래프' ,'막대그래프', '캔들스틱 차트'])
+    tab1, tab2= st.tabs(['라인 그래프' ,'막대그래프'])
     with tab1:
         st.subheader('📈라인 그래프')
         
@@ -74,16 +74,16 @@ def main():
             st.subheader(f'{stock[i]}')
             st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
-    with tab3:
-        st.subheader('캔들스틱 그래프')
+    # with tab3:
+    #     st.subheader('캔들스틱 그래프')
 
-        for i in range(len(stock_list)):
-            st.subheader(f'{stock[i]}')
-            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-            st.dataframe(df)
-            fig = go.Figure(data=[go.Candlestick(x=df.index, open=df['Open'], high=df['High'], low=df['Low'], close=df['Close'])])
+    #     for i in range(len(stock_list)):
+    #         st.subheader(f'{stock[i]}')
+    #         df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
+    #         st.dataframe(df)
+    #         fig = go.Figure(data=[go.Candlestick(x=df.index, open=df['Open'], high=df['High'], low=df['Low'], close=df['Close'])])
             
-            st.plotly_chart(fig)
+    #         st.plotly_chart(fig)
                        
 if __name__ == "__main__":
     main()
