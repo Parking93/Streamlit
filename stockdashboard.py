@@ -48,35 +48,28 @@ def main():
 
 
     # Tab 생성 
-    tab1, tab2, tab3 = st.tabs(['막대그래프' , '라인 그래프', '종가 막대그래프'])
+    tab1, tab2 = st.tabs(['라인 그래프' ,'막대그래프'])
     with tab1:
+        st.subheader('📈라인 그래프')
+        
+        df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
+        st.line_chart(df)
+  
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
+            st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
         st.subheader('📊막대 그래프')
         
-        # st.bar_chart 막대 그래프 생성 
+
+
+    with tab2:
+        
+        st.subheader('📊막대 그래프')
         
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-    with tab2:
-        st.subheader('📈라인 그래프')
-
-        # st.line_chart 라인 그래프 생성
-        
-        for i in range(len(stock_list)):
-            st.subheader(f'{stock[i]}')
-            st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-    # with tab3:
-
-        # st.line_chart 겹쳐진 라인 그래프 생성  
-
-        # df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
-        # df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
-        # df3 = pd.merge(df1, df2, on='Date')
-        # st.line_chart(df3)
-    with tab3:
-
-        df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
-        st.line_chart(df)
+   
         
    
                          
