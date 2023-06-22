@@ -11,7 +11,7 @@ import numpy as np
 
 np.random.seed(100)
 df = pd.DataFrame(
-    np.random.randn(1000, 2) / [100, 100] + [37.57, 126.98],
+    np.random.randn(1000, 2) / [20, 20] + [37.57, 126.98],
     columns=['lat', 'lon'])
 
 st.map(df, zoom=10)
