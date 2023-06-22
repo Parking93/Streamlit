@@ -69,10 +69,10 @@ def main():
 
         # st.line_chart 겹쳐진 라인 그래프 생성  
 
-        df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
-        df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
-        df3 = pd.merge(df1, df2, on='Date')
-        st.line_chart(df3)
+        # df1 = fdr.DataReader(stock_list[0], start_date_str, end_date_str)['Close']
+        # df2 = fdr.DataReader(stock_list[1], start_date_str, end_date_str)['Close']
+        # df3 = pd.merge(df1, df2, on='Date')
+        # st.line_chart(df3)
     with tab4:
 
         df = fdr.DataReader('KRX:'+stock_list.join(','), start_date_str, end_date_str)
