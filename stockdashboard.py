@@ -53,6 +53,7 @@ def main():
         st.subheader('📈라인 그래프')
         
         df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
+        df.colunms = stock
         st.line_chart(df)
   
         for i in range(len(stock_list)):
