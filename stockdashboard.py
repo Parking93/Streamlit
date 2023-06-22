@@ -96,10 +96,7 @@ def main():
                                  low=df['Low'],
                                  close=df['Close'])
             bar_data = go.Bar(x=df.index, y=df['Volume'])
-            fig = make_subplots(rows=2, cols=1, shared_xaxes=True)
-            
-            fig.add_trace(candlestick_data, row=1, col=1)
-            fig.add_trace(bar_data, row=2, col=1)
+
             st.plotly_chart(fig)
 
 
