@@ -81,6 +81,7 @@ def main():
                                                  high=df['High'],
                                                  low=df['Low'],
                                                  close=df['Close'])])
+            
             st.plotly_chart(fig)
     
 
