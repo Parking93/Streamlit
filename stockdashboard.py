@@ -97,6 +97,9 @@ def main():
                                  close=df['Close'])
             bar_data = go.Bar(x=df.index, y=df['Volume'])
             fig = go.Figure(data=[candlestick_data, bar_data])
+            fig.update_layout(title=f"{symbol} Stock Price and Volume",
+                  yaxis_title='Price',
+                  xaxis_rangeslider_visible=False)
             st.plotly_chart(fig)
 
 
