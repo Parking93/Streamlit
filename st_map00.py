@@ -14,7 +14,7 @@ df = pd.DataFrame(
     np.random.randn(1000, 2) / [20, 20] + [37.57, 126.98],
     columns=['lat', 'lon'])
 
-st.map(df, zoom=10, use_container_width=Flase)
+st.map(df, zoom=10, use_container_width=False)
 
 st.write('---')
 
