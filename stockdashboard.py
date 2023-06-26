@@ -25,6 +25,10 @@ def main():
         stock_list.append(stock_dict[i])
     
     
+    #### 종목 선택 확장 ####
+
+    #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
+    
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
     with col1:
