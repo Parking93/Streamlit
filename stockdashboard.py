@@ -26,7 +26,11 @@ def main():
     
     fig = go.Figure(data=go.Bar(x=(df['Marcap'][:10])[::-1],
                             y=(df['Name'][:10])[::-1],
-                            orientation='h',))
+                            orientation='h',
+                            text=df_ranking['Marcap'] / 1e12,
+                            texttemplate='%{text:.0f} 조',
+                                
+                               ))
     # 레이아웃 설정
     fig.update_layout(
         title=market + '시가 총액 TOP10',
