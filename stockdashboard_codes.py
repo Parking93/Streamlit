@@ -25,6 +25,11 @@ def main():
         stock_list.append(stock_dict[i])
     
     
+    #### 종목 선택 확장 ####
+    
+
+    #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
+    
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
     with col1:
@@ -48,7 +53,7 @@ def main():
 
 
     # Tab 생성 
-    tab1, tab2, tab3, tab4 = st.tabs(['라인 그래프' ,'막대그래프', '캔들스틱 그래프', '캔들 + 바'])
+    tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
     with tab1:
         st.subheader('📈라인 그래프')
         
@@ -64,17 +69,8 @@ def main():
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
             st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
-        
-
-    with tab2:
-        
-        st.subheader('📊막대 그래프')
-        
-        for i in range(len(stock_list)):
-            st.subheader(f'{stock[i]}')
-            st.bar_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
-    with tab3:
+    with tab2:
         st.subheader('캔들스틱 그래프')
 
         for i in range(len(stock_list)):
@@ -87,23 +83,10 @@ def main():
                                      close=df['Close'])])
             st.plotly_chart(fig)
 
-    with tab4:
-        for i in range(len(stock_list)):
-            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-            candlestick_data = go.Candlestick(x=df.index,
-                                 open=df['Open'],
-                                 high=df['High'],
-                                 low=df['Low'],
-                                 close=df['Close'])
-            bar_data = go.Bar(x=df.index, y=df['Volume'])
-            fig = go.Figure(data=[candlestick_data, bar_data])
-            st.plotly_chart(fig)
-
 
                        
 if __name__ == "__main__":
     main()
-                        
 
 
 
