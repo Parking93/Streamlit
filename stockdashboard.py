@@ -27,7 +27,7 @@ def main():
     fig = go.Figure(data=go.Bar(x=(df['Marcap'][:10])[::-1],
                             y=(df['Name'][:10])[::-1],
                             orientation='h',
-                            text=df_ranking['Marcap'] / 1e12,
+                            text=(df['Marcap'][:10])[::-1] / 1e12,
                             texttemplate='%{text:.0f} 조',
                                 
                                ))
