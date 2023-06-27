@@ -21,14 +21,13 @@ def main():
     
     stocks = kospi_list['Name'].tolist()
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
-    stock_dict = {'삼성전자':'005930', 'SK하이닉스':'000660'}
     stock_list = []
-    for i in stock:
-        stock_list.append(stock_dict[i])
     
+    for i in stocks:
+        stock_list.append(kospi_list['Code'][kospi_list['Name'] == i])
     
-    #### 종목 선택 확장 ####
 
+    
     #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
     
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
