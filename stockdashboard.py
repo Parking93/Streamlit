@@ -24,7 +24,7 @@ def main():
 
     fig = go.Figure(data=go.Bar(
     x=df['Marcap'],
-    y=df_rankin['Name'],
+    y=df['Name'],
     orientation='h',
     ))
     st.plotly_chart(fig)
