@@ -17,18 +17,17 @@ def main():
     st.title("주식 차트 대시보드")
 
     # 종목 선택 
-    stocks = ['삼성전자', 'SK하이닉스']
+ 
+    kospi_list = fdr.StockListing('KOSPI')
+    stocks = kospi_list['Name'].tolist()
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
-    stock_dict = {'삼성전자':'005930', 'SK하이닉스':'000660'}
     stock_list = []
     for i in stock:
-        stock_list.append(stock_dict[i])
+        stock_list.append(kospi_list['Code'][kospi_list['Name'] == i])
     
-    
-    #### 종목 선택 확장 ####
-    
-
     #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
+
+
     
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
@@ -45,8 +44,8 @@ def main():
     
     # 매트릭 생성 
     for i in range(len(stock_list)):
-        stock_value1 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
-        stock_value2 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-2] # 종료 날짜 전날의 해당 주식 종가
+        stock_value1 = fdr.DataReader(stock_list[i][i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
+        stock_value2 = fdr.DataReader(stock_list[i][i], start_date_str, end_date_str)["Close"].iloc[-2] # 종료 날짜 전날의 해당 주식 종가
         st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}원')
                   
 
@@ -75,7 +74,7 @@ def main():
 
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
-            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
+            df = fdr.DataReader(stock_list[i][i], start_date_str, end_date_str)
             fig = go.Figure(data=[go.Candlestick(x=df.index,
                                      open=df['Open'],
                                      high=df['High'],
