@@ -24,11 +24,16 @@ def main():
    
     
     
-    fig = go.Figure(data=go.Bar(
-    x=(df['Marcap'][:10])[::-1],
-    y=(df['Name'][:10])[::-1],
-    orientation='h',
-    ))
+    fig = go.Figure(data=go.Bar(x=(df['Marcap'][:10])[::-1],
+                            y=(df['Name'][:10])[::-1],
+                            orientation='h',))
+    # 레이아웃 설정
+    fig.update_layout(
+        title=market + '시가 총액 TOP10',
+        xaxis=dict(title='시가 총액 (조)'),
+        yaxis=dict(title='종목명'),
+        bargap=0.1)
+    
     st.plotly_chart(fig)
 
 
