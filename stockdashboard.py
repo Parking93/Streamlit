@@ -23,8 +23,8 @@ def main():
     df = fdr.StockListing(market)
 
     fig = go.Figure(data=go.Bar(
-    x=df['Marcap'],
-    y=df['Name'],
+    x=df['Marcap'][:10],
+    y=df['Name'][:10],
     orientation='h',
     ))
     st.plotly_chart(fig)
