@@ -21,7 +21,7 @@ def main():
 
     market = st.selectbox("주식시장을 선택하세요", ["KRX", "KOSPI", "KOSDAQ", "KONEX"])
     df = fdr.StockListing(market)
-
+    st.write(df['Marcap'][:10:-1])
 
     
     fig = go.Figure(data=go.Bar(
