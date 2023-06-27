@@ -17,15 +17,15 @@ def main():
     st.title("주식 차트 대시보드")
 
     # 종목 선택 
+
     kospi_list = fdr.StockListing('KOSPI')
-    
     stocks = kospi_list['Name'].tolist()
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
+
     stock_list = []
-    
-    for i in stocks:
+    for i in stock:
         stock_list.append(kospi_list['Code'][kospi_list['Name'] == i])
-    
+
 
     
     #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
@@ -43,45 +43,45 @@ def main():
 
 
     
-    # 매트릭 생성 
-    for i in range(len(stock_list)):
-        stock_value1 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
-        stock_value2 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-2] # 종료 날짜 전날의 해당 주식 종가
-        st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}원')
+    # # 매트릭 생성 
+    # for i in range(len(stock_list)):
+    #     stock_value1 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
+    #     stock_value2 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-2] # 종료 날짜 전날의 해당 주식 종가
+    #     st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}원')
                   
 
 
 
-    # Tab 생성 
-    tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
-    with tab1:
-        st.subheader('📈라인 그래프')
+    # # Tab 생성 
+    # tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
+    # with tab1:
+    #     st.subheader('📈라인 그래프')
         
-        df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
+    #     df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
 
-        if len(stock) == 1:
-            pass
-        if len(stock) >= 2:
-            df.columns = stock
-            st.line_chart(df)
+    #     if len(stock) == 1:
+    #         pass
+    #     if len(stock) >= 2:
+    #         df.columns = stock
+    #         st.line_chart(df)
         
   
-        for i in range(len(stock_list)):
-            st.subheader(f'{stock[i]}')
-            st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+    #     for i in range(len(stock_list)):
+    #         st.subheader(f'{stock[i]}')
+    #         st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
-    with tab2:
-        st.subheader('캔들스틱 그래프')
+    # with tab2:
+    #     st.subheader('캔들스틱 그래프')
 
-        for i in range(len(stock_list)):
-            st.subheader(f'{stock[i]}')
-            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-            fig = go.Figure(data=[go.Candlestick(x=df.index,
-                                     open=df['Open'],
-                                     high=df['High'],
-                                     low=df['Low'],
-                                     close=df['Close'])])
-            st.plotly_chart(fig)
+    #     for i in range(len(stock_list)):
+    #         st.subheader(f'{stock[i]}')
+    #         df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
+    #         fig = go.Figure(data=[go.Candlestick(x=df.index,
+    #                                  open=df['Open'],
+    #                                  high=df['High'],
+    #                                  low=df['Low'],
+    #                                  close=df['Close'])])
+    #         st.plotly_chart(fig)
 
 
                        
