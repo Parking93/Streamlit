@@ -16,6 +16,18 @@ def main():
     # 제목
     st.title("주식 차트 대시보드")
 
+
+    # 주식 시장 종목 선택 
+
+    market = st.selectbox("주식시장을 선택하세요", ["KRX", "KOSPI", "KOSDAQ", "KONEX"])
+
+
+
+
+
+
+    
+
     # 종목 선택 
 
     kospi_list = fdr.StockListing('KOSPI')
@@ -25,10 +37,6 @@ def main():
     stock_list = []
     for i in stock:
         stock_list.append(kospi_list['Code'][kospi_list['Name'] == i].values[0])
-
-
-    
-    #### 코스피 종목들의 시가총액 막대 그래프 추가 ####
     
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
