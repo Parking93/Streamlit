@@ -24,7 +24,7 @@ def main():
 
     stock_list = []
     for i in stock:
-        stock_list.append(kospi_list['Code'][kospi_list['Name'] == i])
+        stock_list.append(kospi_list['Code'][kospi_list['Name'] == i].values[0])
 
 
     
@@ -52,22 +52,22 @@ def main():
 
 
 
-    # # Tab 생성 
-    # tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
-    # with tab1:
-    #     st.subheader('📈라인 그래프')
+    # Tab 생성 
+    tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
+    with tab1:
+        st.subheader('📈라인 그래프')
         
-    #     df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
+        df = fdr.DataReader('KRX:'+','.join(stock_list), start_date_str, end_date_str)
 
-    #     if len(stock) == 1:
-    #         pass
-    #     if len(stock) >= 2:
-    #         df.columns = stock
-    #         st.line_chart(df)
+        if len(stock) == 1:
+            pass
+        if len(stock) >= 2:
+            df.columns = stock
+            st.line_chart(df)
         
   
-    #     for i in range(len(stock_list)):
-    #         st.subheader(f'{stock[i]}')
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
     #         st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
     # with tab2:
