@@ -68,20 +68,20 @@ def main():
   
         for i in range(len(stock_list)):
             st.subheader(f'{stock[i]}')
-    #         st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
+            st.line_chart(fdr.DataReader(stock_list[i], start_date_str, end_date_str)['Close'])
    
-    # with tab2:
-    #     st.subheader('캔들스틱 그래프')
+    with tab2:
+        st.subheader('캔들스틱 그래프')
 
-    #     for i in range(len(stock_list)):
-    #         st.subheader(f'{stock[i]}')
-    #         df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
-    #         fig = go.Figure(data=[go.Candlestick(x=df.index,
-    #                                  open=df['Open'],
-    #                                  high=df['High'],
-    #                                  low=df['Low'],
-    #                                  close=df['Close'])])
-    #         st.plotly_chart(fig)
+        for i in range(len(stock_list)):
+            st.subheader(f'{stock[i]}')
+            df = fdr.DataReader(stock_list[i], start_date_str, end_date_str)
+            fig = go.Figure(data=[go.Candlestick(x=df.index,
+                                     open=df['Open'],
+                                     high=df['High'],
+                                     low=df['Low'],
+                                     close=df['Close'])])
+            st.plotly_chart(fig)
 
 
                        
