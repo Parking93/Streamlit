@@ -21,12 +21,12 @@ def main():
 
     market = st.selectbox("주식시장을 선택하세요", ["KRX", "KOSPI", "KOSDAQ", "KONEX"])
     df = fdr.StockListing(market)
-    st.write((df[['Name','Marcap']][:10])[::-1])
+   
     
     
     fig = go.Figure(data=go.Bar(
-    x=df['Marcap'][:10],
-    y=df['Name'][:10],
+    x=(df['Marcap'][:10])[::-1],
+    y=(df['Name'][:10])[::-1],
     orientation='h',
     ))
     st.plotly_chart(fig)
