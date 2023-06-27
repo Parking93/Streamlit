@@ -19,7 +19,7 @@ def main():
     # 종목 선택 
     kospi_list = fdr.StockListing('KOSPI')
     
-    stocks = kospi_list['Code'].tolist()
+    stocks = kospi_list['Name'].tolist()
     stock = st.multiselect('종목을 선택해주세요.', stocks) 
     stock_dict = {'삼성전자':'005930', 'SK하이닉스':'000660'}
     stock_list = []
