@@ -55,9 +55,9 @@ def main():
     # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
     col1, col2 = st.columns(2)
     with col1:
-        start_date = st.date_input('시작 날짜', datetime.date(2022,1,1))
+        start_date = st.sidebar.date_input('시작 날짜', datetime.date(2022,1,1))
     with col2:
-        end_date = st.date_input('종료 날짜')
+        end_date = st.sidebar.date_input('종료 날짜')
    
     # 날짜를 문자열로 변환
     start_date_str = start_date.strftime('%Y-%m-%d')
