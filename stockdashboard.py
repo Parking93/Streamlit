@@ -40,16 +40,13 @@ def main():
     
     st.plotly_chart(fig)
 
-
-    # 사이드 바?
-
     
 
     # 종목 선택 
 
     kospi_list = fdr.StockListing('KOSPI')
     stocks = kospi_list['Name'].tolist()
-    stock = st.multiselect('종목을 선택해주세요.', stocks) 
+    stock = st.sidebar.multiselect('종목을 선택해주세요.', stocks) 
 
     stock_list = []
     for i in stock:
