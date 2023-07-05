@@ -29,7 +29,7 @@ def main():
                             orientation='h',
                             text=(df['Marcap'][:10])[::-1] / 1e12,
                             texttemplate='%{text:.0f} 조',
-                                
+       
                             ))
     # 레이아웃 설정
     fig.update_layout(
