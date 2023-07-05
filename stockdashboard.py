@@ -63,7 +63,6 @@ def main():
     end_date_str = end_date.strftime('%Y-%m-%d')
 
 
-    
     # 매트릭 생성 
     for i in range(len(stock_list)):
         stock_value1 = fdr.DataReader(stock_list[i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
