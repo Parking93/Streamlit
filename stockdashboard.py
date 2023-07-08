@@ -17,18 +17,20 @@ def main():
     st.title("주식 차트 대시보드")
 
 
-    ## 주식 시장 종목 선택 
+    # 주식 시장 종목 선택 
+    
     market = st.sidebar.selectbox("주식시장을 선택하세요", ["KRX", "KOSPI", "KOSDAQ", "KONEX"])
     df = fdr.StockListing(market)
    
-    
-    
+
+    # 주식 시장의 상위 10개의 종목 시가 총액 그래프 생성 
     fig = go.Figure(data=go.Bar(x=(df['Marcap'][:10])[::-1],
                             y=(df['Name'][:10])[::-1],
                             orientation='h',
                             text=(df['Marcap'][:10])[::-1] / 1e12,
                             texttemplate='%{text:.0f} 조',
                             ))
+    
     # 레이아웃 설정
     fig.update_layout(
         title=market + '시가 총액 TOP10',
