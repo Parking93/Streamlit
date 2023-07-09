@@ -16,7 +16,6 @@ def main():
     # 제목
     st.title("주식 차트 대시보드")
 
-
     # 주식 시장 종목 선택 
     
     market = st.sidebar.selectbox("주식시장을 선택하세요", ["KRX", "KOSPI", "KOSDAQ", "KONEX"])
