@@ -16,7 +16,7 @@ np.random.seed(100)
 
 
 # 예시 1: ScatterplotLayer로 시각화
-st.subheader('예시 1: ScatterplotLayer타입)
+st.subheader('예시 1: ScatterplotLayer타입')
 
 
 df = pd.DataFrame(
@@ -49,7 +49,7 @@ st.pydeck_chart(deck)
 
 
 # 예시 2: HexagonLayer로 시각화
-st.subheader('예시 2: HexagonLayer타입)
+st.subheader('예시 2: HexagonLayer타입')
 
 # 서울시 좌표 중심으로 랜덤 데이터 생성
 
@@ -86,7 +86,7 @@ st.pydeck_chart(deck)
 
 
 # 예시 3: HeatmapLayer로 시각화
-st.subheader('예시 3: HeatmapLayer타입)
+st.subheader('예시 3: HeatmapLayer타입')
 
 # 서울시 좌표 중심으로 랜덤 데이터 생성
 df = pd.DataFrame(
