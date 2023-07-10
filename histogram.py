@@ -11,7 +11,7 @@ import seaborn as sns
 import plotly.graph_objects as go
 
 # 예시 1 
-st.subheader('예시 1')
+st.write('예시 1')
 
 arr = np.random.normal(1, 1, size=100)
 
@@ -25,7 +25,7 @@ st.pyplot(fig)
 
 # 예시 2 
 
-st.subheader('예시 2')
+st.write('예시 2')
 
 arr = np.random.normal(1, 1, size=100)
 
@@ -39,7 +39,7 @@ st.pyplot(fig)
 
 # 예시 3 
 
-st.subheader('예시 3')
+st.write('예시 3')
 
 arr = np.random.normal(1, 1, size=100)
 
