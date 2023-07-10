@@ -23,6 +23,7 @@ df_market = fdr.StockListing(market)
 
 
 # 주식 시장의 상위 10개의 종목 시가 총액 그래프 생성 
+
 fig = go.Figure(data=go.Bar(x=(df_market['Marcap'][:10])[::-1],
                         y=(df_market['Name'][:10])[::-1],
                         orientation='h',
@@ -41,8 +42,7 @@ st.plotly_chart(fig)
 
 
 
-# 종목 선택 
-
+# 주식 종목 선택 
 list_kospi = fdr.StockListing('KOSPI')
 stocks = list_kospi['Name'].tolist()
 stock = st.sidebar.multiselect('종목을 선택해주세요.', stocks) 
@@ -50,6 +50,7 @@ stock = st.sidebar.multiselect('종목을 선택해주세요.', stocks)
 list_stock = []
 for i in stock:
     list_stock.append(list_kospi['Code'][list_kospi['Name'] == i].values[0])
+
 
 # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
 col1, col2 = st.columns(2)
@@ -71,9 +72,10 @@ for i in range(len(list_stock)):
               
 
 
-
 # Tab 생성 
 tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
+
+# tab1 라인 그래프 
 with tab1:
     st.subheader('📈라인 그래프')
     
@@ -89,7 +91,8 @@ with tab1:
     for i in range(len(list_stock)):
         st.subheader(f'{stock[i]}')
         st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
-
+      
+# tab2 캔들스틱 그래프 
 with tab2:
     st.subheader('캔들스틱 그래프')
 
