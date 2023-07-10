@@ -64,7 +64,7 @@ end_date_str = end_date.strftime('%Y-%m-%d')
 
 
 # 매트릭 생성 
-for i in range(len(stock_list)):
+for i in range(len(list_stock)):
     stock_value1 = fdr.DataReader(list_stock[i], start_date_str, end_date_str)["Close"].iloc[-1] # 종료 날짜의 해당 주식 종가
     stock_value2 = fdr.DataReader(list_stock[i], start_date_str, end_date_str)["Close"].iloc[-2] # 종료 날짜 전날의 해당 주식 종가
     st.metric(label=f'{stock[i]}', value=f'{stock_value1}원', delta = f'{stock_value1 - stock_value2}원')
