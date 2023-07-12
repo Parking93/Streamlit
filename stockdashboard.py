@@ -83,7 +83,7 @@ tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
 with tab1:
     st.subheader('📈라인 그래프')
     
-    df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
+    # df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
 
     # if len(stock) == 1:
     #     pass
