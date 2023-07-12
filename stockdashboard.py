@@ -72,38 +72,38 @@ for i in range(len(list_stock)):
               
 
 
-# Tab 생성 
-tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
+# # Tab 생성 
+# tab1, tab2 = st.tabs(['라인 그래프', '캔들스틱 그래프'])
 
-# tab1 라인 그래프 
-with tab1:
-    st.subheader('📈라인 그래프')
+# # tab1 라인 그래프 
+# with tab1:
+#     st.subheader('📈라인 그래프')
     
-    df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
+#     df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
 
-    if len(stock) == 1:
-        pass
-    if len(stock) >= 2:
-        df.columns = stock
-        st.line_chart(df)
+#     if len(stock) == 1:
+#         pass
+#     if len(stock) >= 2:
+#         df.columns = stock
+#         st.line_chart(df)
     
-    for i in range(len(list_stock)):
-        st.subheader(f'{stock[i]}')
-        st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
+#     for i in range(len(list_stock)):
+#         st.subheader(f'{stock[i]}')
+#         st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
       
-# tab2 캔들스틱 그래프 
-with tab2:
-    st.subheader('캔들스틱 그래프')
+# # tab2 캔들스틱 그래프 
+# with tab2:
+#     st.subheader('캔들스틱 그래프')
 
-    for i in range(len(list_stock)):
-        st.subheader(f'{stock[i]}')
-        df = fdr.DataReader(list_stock[i], start_date_str, end_date_str)
-        fig = go.Figure(data=[go.Candlestick(x=df.index,
-                                 open=df['Open'],
-                                 high=df['High'],
-                                 low=df['Low'],
-                                 close=df['Close'])])
-        st.plotly_chart(fig)
+#     for i in range(len(list_stock)):
+#         st.subheader(f'{stock[i]}')
+#         df = fdr.DataReader(list_stock[i], start_date_str, end_date_str)
+#         fig = go.Figure(data=[go.Candlestick(x=df.index,
+#                                  open=df['Open'],
+#                                  high=df['High'],
+#                                  low=df['Low'],
+#                                  close=df['Close'])])
+#         st.plotly_chart(fig)
 
 
                          
