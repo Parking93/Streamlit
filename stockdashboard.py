@@ -51,6 +51,7 @@ stock = st.sidebar.multiselect('종목을 선택해주세요.', stocks)
 # for i in stock:
 #     list_stock.append(list_kospi['Code'][list_kospi['Name'] == i].values[0])
 list_stock = []
+
 for i in stock:
     if i in list_kospi['Name'].values:
         list_stock.append(list_kospi.loc[list_kospi['Name'] == i, 'Code'].values[0])
@@ -96,13 +97,13 @@ with tab1:
     #     st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
 
     if len(stock) > 0:
-    df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
-    df.columns = stock
-    st.line_chart(df)
+      df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
+      df.columns = stock
+      st.line_chart(df)
 
-    for i in range(len(list_stock)):
-        st.subheader(f'{stock[i]}')
-        st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
+      for i in range(len(list_stock)):
+          st.subheader(f'{stock[i]}')
+          st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
       
 # tab2 캔들스틱 그래프 
 with tab2:
