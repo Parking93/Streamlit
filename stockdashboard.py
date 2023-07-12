@@ -47,10 +47,13 @@ list_kospi = fdr.StockListing('KOSPI')
 stocks = list_kospi['Name'].tolist()
 stock = st.sidebar.multiselect('종목을 선택해주세요.', stocks) 
 
+# list_stock = []
+# for i in stock:
+#     list_stock.append(list_kospi['Code'][list_kospi['Name'] == i].values[0])
 list_stock = []
 for i in stock:
-    list_stock.append(list_kospi['Code'][list_kospi['Name'] == i].values[0])
-
+    if i in list_kospi['Name'].values:
+        list_stock.append(list_kospi.loc[list_kospi['Name'] == i, 'Code'].values[0])
 
 # 사용자로부터 시작 날짜와 종료 날짜 입력 받기
 col1, col2 = st.columns(2)
