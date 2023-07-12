@@ -84,12 +84,21 @@ with tab1:
     
     df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
 
-    if len(stock) == 1:
-        pass
-    if len(stock) >= 2:
-        df.columns = stock
-        st.line_chart(df)
+    # if len(stock) == 1:
+    #     pass
+    # if len(stock) >= 2:
+    #     df.columns = stock
+    #     st.line_chart(df)
     
+
+    # for i in range(len(list_stock)):
+    #     st.subheader(f'{stock[i]}')
+    #     st.line_chart(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
+
+    if len(stock) > 0:
+    df = fdr.DataReader('KRX:'+','.join(list_stock), start_date_str, end_date_str)
+    df.columns = stock
+    st.line_chart(df)
 
     for i in range(len(list_stock)):
         st.subheader(f'{stock[i]}')
