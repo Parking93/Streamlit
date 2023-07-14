@@ -106,7 +106,9 @@ end_date_str = end_date.strftime('%Y-%m-%d')
 #         fig.update_layout(title_text=f'{stock[i]}')
 #         st.plotly_chart(fig)
 
-st.dataframe(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
+for i in range(len(list_stock)):
+  st.dataframe(fdr.DataReader(list_stock[i], start_date_str, end_date_str)['Close'])
+
                          
                          
                          
