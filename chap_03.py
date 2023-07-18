@@ -44,7 +44,16 @@ audio_bytes = audio_file.read()
 st.audio(audio_bytes, format="audio/mp3", start_time=5)
 
 
+import numpy as np
 
+sample_rate = 44100  # 44100 초당 샘플수
+seconds = 2  # 2초 동안 음이 지속됩니다.
+frequency_la = 440  # 재생할 음파를 나타냅니다.
+
+t = np.linspace(0, seconds, seconds * sample_rate, False) 
+note_la = np.sin(frequency_la * t * 2 * np.pi) #440 헤르쯔의 사인파를 만듭니다.
+
+st.audio(note_la, sample_rate=sample_rate)
 
 
 
