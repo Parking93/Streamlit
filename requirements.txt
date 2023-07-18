@@ -1,6 +1,7 @@
 finance-datareader
 beautifulsoup4
-plotly
-matplotlib
+plotly==5.14.1
+matplotlib==3.7.1
 koreanize-matplotlib
-seaborn
+seaborn==0.12.2
+Pillow==9.5.0
