@@ -3,5 +3,5 @@ beautifulsoup4
 plotly==5.14.1
 matplotlib==3.7.1
 koreanize-matplotlib
-seaborn==0.12.2
+seaborn
 Pillow==9.5.0
