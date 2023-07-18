@@ -21,10 +21,18 @@ image = Image.open("example.jpg")
 
 st.image(image, caption="example", width=200, use_column_width="auto")
 
+# 동영상 파일을 로컬 경로에서 재생하는 예시
+video_file = open("example.mp4", "rb")
+video_bytes = video_file.read()
+
+st.video(video_bytes)
 
 
+# 동영상 파일을 로컬 경로에서 재생하는 예시
+video_file = open("example1.mp4", "rb")
+video_bytes = video_file.read()
 
-
+st.video(video_bytes)
 
 
 
