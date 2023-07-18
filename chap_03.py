@@ -10,9 +10,9 @@ import numpy as np
 from PIL import Image
 
 
-image9 = Image.open("example.jpg")
+image = Image.open("example.jpg")
 
-st.image(image8, caption="example", width=200, use_column_width="auto")
+st.image(image, caption="example", width=200, use_column_width="auto")
 
 
 
