@@ -35,7 +35,13 @@ video_bytes = video_file.read()
 st.video(video_bytes)
 
 
+import streamlit as st
 
+audio_file = open("example.mp3", "rb")
+
+audio_bytes = audio_file.read()
+
+st.audio(audio_bytes, format="audio/mp3", start_time=5)
 
 
 
